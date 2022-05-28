@@ -1,29 +1,23 @@
-# [Create Recursive App](https://riadhadrani.github.io/recursive-website/) [![Version](https://img.shields.io/npm/v/@riadh-adrani/create-recursive-app?color=blue)](https://www.npmjs.com/package/@riadh-adrani/create-recursive-app) [![Licence](https://img.shields.io/npm/l/@riadh-adrani/recursive)](https://github.com/RiadhAdrani/create-recursive-app/blob/master/LICENSE)
+# [Wroddit](https://riadhadrani.github.io/wroddit/)
 
-Provide a template to start devloping with `recursive`.
+Wroddit is a Reddit clone made to showcase the potential of [Recursive.js `ver0.7`](https://github.com/RiadhAdrani/recursive)
 
-Use this command :
+_This prototype may contains bugs._
 
-```shell
-npx @riadh-adrani/create-recursive-app my-app
-```
+#### Contributors
 
-It will create a directory called `my-app` in the current folder.
+-   Riadh Adrani (owner) <https://github.com/RiadhAdrani>
 
-Open up the project folder:
+#### Technologies
 
-```shell
-cd my-app
-```
+-   [Recursive.js](https://github.com/RiadhAdrani/recursive)
+-   Firebase Firestore
 
-To start development server:
+#### Features
 
-```shell
-npm start
-```
-
-In the browser, check http://localhost:8080/
-
-Hot reloading is enabled, but it is under development to add state preservation for `state` and `routes`.
-
-Thank you for trying Recursive 😀
+-   Create an account.
+-   Create communities.
+-   Comments like Reddit up to a depth of 10 replies.
+-   Customize your profile : profile picture and banner.
+-   Create posts with text _(max characters is 1000)_ and image _(max size 1 mb)_
+-   Dark mode supported.
