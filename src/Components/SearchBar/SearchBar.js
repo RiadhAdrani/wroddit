@@ -31,7 +31,7 @@ export default () => {
             className: "sticky-search",
             normal: { width: "300px" },
             mediaQueries: mediaQueries({
-                small: { normal: { display: doShow() ? "flex" : "none", width: "auto" } },
+                small: { normal: { display: doShow() ? "flex" : "none", width: "100%" } },
             }),
         },
         events: {
@@ -84,7 +84,6 @@ export default () => {
                         top: "50px",
                         marginTop: "5px",
                         padding: "10px",
-                        // border: `1px solid ${theme.accent}`,
                         borderRadius: "2.5px",
                         width: "278px",
                         background: theme.secondary,

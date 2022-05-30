@@ -16,7 +16,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@riadh-adrani/recursive": "^0.7.0",
+        "@riadh-adrani/recursive": "^0.7.2",
         "clean-webpack-plugin": "^4.0.0",
         "firebase": "^9.8.0"
     },

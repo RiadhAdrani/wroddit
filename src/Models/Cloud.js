@@ -342,9 +342,9 @@ const getSearchResult = async (searchQuery) => {
     const communities = (await getDocs(query(collection(db, COMMUNITIES)))).docs
         .filter((community) => {
             return (
-                community.data().name.toLowerCase().includes(searchQuery) ||
-                community.data().title.toLowerCase().includes(searchQuery) ||
-                community.data().tags.toString().includes(searchQuery)
+                community.data().name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                community.data().title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                community.data().tags.toString().includes(searchQuery.toLowerCase())
             );
         })
         .map((community) => community.data());

@@ -1,4 +1,4 @@
-import { Column, EmptyBox, H2, P } from "@riadh-adrani/recursive/components";
+import { Column, EmptyBox, H2, Input, P, Row } from "@riadh-adrani/recursive/components";
 import { goTo } from "@riadh-adrani/recursive/router";
 import { getState, setState, updateAfter } from "@riadh-adrani/recursive/state";
 import { authUser, getSubscriptions, getUserInfo } from "../Models/Cloud";
@@ -16,6 +16,7 @@ export default () => {
     const [error, setError] = setState("login-error", "");
     const theme = getTheme();
     const [user] = getState("user");
+    const [remember, setRemember] = setState("login-remember", false);
 
     const tryLogin = async () => {
         const [, setUser] = getState("user");
@@ -33,7 +34,9 @@ export default () => {
 
             updateAfter(() => {
                 setUser({ ...data.data(), email: data.id });
-                saveAuth(password.trim());
+                if (remember) {
+                    saveAuth(password.trim());
+                }
                 goTo(redirect ? redirect : "/");
             });
 
@@ -47,7 +50,6 @@ export default () => {
             });
         } catch (e) {
             updateAfter(() => {
-                console.log(e);
                 setError(e.message ? e.message : "Something went wrong ...");
                 setBusy(false);
             });
@@ -93,7 +95,37 @@ export default () => {
                         disabled: busy,
                     }),
                     EmptyBox({ height: "10px" }),
-
+                    Row({
+                        style: {
+                            className: "remember-me-box",
+                            scoped: true,
+                            normal: {
+                                alignItems: "center",
+                                justifyContent: "center",
+                                cursor: "pointer",
+                                padding: "5px",
+                            },
+                            hover: {
+                                backgroundColor: theme.secondary,
+                            },
+                        },
+                        events: {
+                            onClick: () => {
+                                if (!busy) setRemember(!remember);
+                            },
+                        },
+                        children: [
+                            P({ text: "Remember me" }),
+                            EmptyBox({ width: "5px" }),
+                            Input({
+                                type: "checkbox",
+                                disabled: busy,
+                                checked: remember,
+                                style: { inline: { accentColor: theme.accentTertiary } },
+                            }),
+                        ],
+                    }),
+                    EmptyBox({ height: "10px" }),
                     StandardButton({
                         text: "Connect",
                         loading: busy,

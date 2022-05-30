@@ -88,7 +88,7 @@ export default () => {
                         style: {
                             inline: { marginLeft: "10px", fontSize: "1.75em" },
                             className: "sticky-title-text",
-                            mediaQueries: mediaQueries({ tiny: { normal: { display: "none" } } }),
+                            mediaQueries: mediaQueries({ small: { normal: { display: "none" } } }),
                         },
                     }),
                 ],
