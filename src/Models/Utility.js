@@ -12,6 +12,7 @@ import {
     getSubscriptions,
     getUserInfo,
 } from "./Cloud";
+import { getRoot } from "@riadh-adrani/recursive/RecursiveRouter/RecursiveRouter";
 
 function since(time) {
     const delta = Date.now() - time;
@@ -58,7 +59,7 @@ function checkUser(action = () => {}) {
     const [, setRedirect] = getState("redirect");
 
     if (!user) {
-        setRedirect(location.pathname);
+        setRedirect(location.pathname.replace(getRoot() + "/", ""));
         goTo("/login");
         return;
     }
